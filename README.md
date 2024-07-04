@@ -39,7 +39,7 @@ Initialize the I2C communication and the ADS7830 ADC in the `setup()` function:
 ```cpp
 void setup() {
     Serial.begin(9600);
-    adc.begin(); // Initialize with default SDA, SCL, and baudrate
+    adc.init(); // Initialize with baudrate
 }
 ```
 
@@ -80,7 +80,7 @@ You can customize the I2C SDA and SCL pins and the baudrate when initializing th
 ```cpp
 void setup() {
     Serial.begin(9600);
-    adc.begin(21, 22, 400000); // SDA = 21, SCL = 22, baudrate = 400kHz
+    adc.init(400000); // SDA, SCL = default port, baudrate = 400kHz
 }
 ```
 
@@ -94,10 +94,8 @@ void setup() {
 
 ### Initialization
 
-- `void begin(uint8_t sdaPin = 4, uint8_t sclPin = 5, uint32_t baudrate = 100000)`
+- `void begin(uint32_t baudrate = 100000)`
   - Initializes the I2C communication and ADS7830 ADC.
-  - `sdaPin`: The pin for I2C SDA (default is 4).
-  - `sclPin`: The pin for I2C SCL (default is 5).
   - `baudrate`: The I2C baudrate (default is 100000).
 
 ### Reading ADC Values
@@ -117,7 +115,7 @@ This library is licensed under the MIT License. See the `LICENSE` file for more 
 
 ## Author
 
-Created by [Your Name].
+Created by [cclngit].
 
 ## Acknowledgments
 
