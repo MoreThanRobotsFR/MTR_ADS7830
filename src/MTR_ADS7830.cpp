@@ -1,8 +1,8 @@
 #include "MTR_ADS7830.h"
 
-ADS7830::ADS7830(uint8_t i2cAddress) : _i2cAddress(i2cAddress) {}
+MTR_ADS7830::MTR_ADS7830(uint8_t i2cAddress) : _i2cAddress(i2cAddress) {}
 
-void ADS7830::begin(uint8_t sdaPin, uint8_t sclPin, uint32_t baudrate) {
+void MTR_ADS7830::begin(uint8_t sdaPin, uint8_t sclPin, uint32_t baudrate) {
     _sdaPin = sdaPin;
     _sclPin = sclPin;
     _baudrate = baudrate;
@@ -11,7 +11,7 @@ void ADS7830::begin(uint8_t sdaPin, uint8_t sclPin, uint32_t baudrate) {
     Wire.setClock(_baudrate);
 }
 
-uint8_t ADS7830::readChannel(uint8_t channel) {
+uint8_t MTR_ADS7830::readChannel(uint8_t channel) {
     uint8_t command;
 
     switch (channel) {
@@ -30,19 +30,19 @@ uint8_t ADS7830::readChannel(uint8_t channel) {
     return readData();
 }
 
-void ADS7830::readAllChannels(uint8_t* values) {
+void MTR_ADS7830::readAllChannels(uint8_t* values) {
     for (uint8_t i = 0; i < 8; i++) {
         values[i] = readChannel(i);
     }
 }
 
-void ADS7830::writeCommand(uint8_t command) {
+void MTR_ADS7830::writeCommand(uint8_t command) {
     Wire.beginTransmission(_i2cAddress);
     Wire.write(command);
     Wire.endTransmission();
 }
 
-uint8_t ADS7830::readData() {
+uint8_t MTR_ADS7830::readData() {
     Wire.requestFrom(_i2cAddress, (uint8_t)1);
     if (Wire.available()) {
         return Wire.read();
