@@ -1,0 +1,24 @@
+{
+    "name": "MTR_ADS7830",
+    "keywords": "I2C, ADC, ADS7830, arduino, MTR, MTR_ADS7830",
+    "description": "This is an Arduino library for interfacing with the ADS7830, an 8-channel 8-bit A/D converter with an I2C interface.",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/MoreThanRobotsFR/MTR_ADS7830.git"
+    },
+    "frameworks": "arduino",
+    "platforms": "*",
+    "authors":
+    [
+      {
+        "name": "ccln",
+        "url": "https://github.com/cclngit",
+        "maintainer": true
+      }
+    ],
+    "version": "1.0.0",
+    "license": "MIT",
+    "homepage": "https://github.com/MoreThanRobotsFR/MTR_ADS7830"
+}
+  
