@@ -8,7 +8,7 @@ MTR_ADS7830 adc;
 
 void setup() {
     Serial.begin(9600);
-    adc.begin(); // Initialize with default SDA, SCL, and baudrate
+    adc.init();
 }
 
 void loop() {

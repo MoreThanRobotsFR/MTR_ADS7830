@@ -35,11 +35,9 @@ public:
     /**
      * @brief Initialize the I2C communication and ADS7830 ADC
      * 
-     * @param sdaPin The pin for I2C SDA (default is 4)
-     * @param sclPin The pin for I2C SCL (default is 5)
-     * @param baudrate The I2C baudrate (default is 100000)
+     * @param baudrate The I2C baudrate to use (default is 100000)
      */
-    void begin(uint8_t sdaPin = 4, uint8_t sclPin = 5, uint32_t baudrate = 100000);
+    void init(uint32_t baudrate = 100000);
 
     /**
      * @brief Read the ADC value from a specific channel
@@ -58,8 +56,6 @@ public:
 
 private:
     uint8_t _i2cAddress;
-    uint8_t _sdaPin;
-    uint8_t _sclPin;
     uint32_t _baudrate;
 
     /**

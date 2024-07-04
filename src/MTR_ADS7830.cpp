@@ -2,13 +2,10 @@
 
 MTR_ADS7830::MTR_ADS7830(uint8_t i2cAddress) : _i2cAddress(i2cAddress) {}
 
-void MTR_ADS7830::begin(uint8_t sdaPin, uint8_t sclPin, uint32_t baudrate) {
-    _sdaPin = sdaPin;
-    _sclPin = sclPin;
+void MTR_ADS7830::init(uint32_t baudrate) {
     _baudrate = baudrate;
-
-    Wire.begin(_sdaPin, _sclPin);
-    Wire.setClock(_baudrate);
+    Wire.begin();
+    Wire.setClock(baudrate);
 }
 
 uint8_t MTR_ADS7830::readChannel(uint8_t channel) {
